@@ -1,0 +1,52 @@
+{% extends "registration/registration_base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head_block%}
+    <title>Login</title>
+{% endblock %}
+
+{% block bg_block %}
+    class="bg-light"
+{% endblock %}
+
+{% block body_block %}
+
+    <div class="col-md-6 offset-md-3">
+        <div class="py-5 text-center">
+            <h2 class="text-primary">Login</h2>
+        </div>
+
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <div class="alert alert-primary">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-primary">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="text-success">
+            <form method="post" action="">
+
+                {% csrf_token %}
+
+                {{ form.username|as_crispy_field }}
+                {{ form.password|as_crispy_field }}
+
+                <button type="submit" class="btn btn-danger btn-block">Log in</button>
+                <input type="hidden" name="next" value="" />
+
+            </form>
+        </div>
+
+        <p class="pt-3 text-success">Forgot your password? <a href="{% url 'auth_password_reset' %}">Reset it</a>.</p>
+        <p class="text-success">Not a member? <a href="{% url 'registration_register' %}">Sign up</a>.</p>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'myevents/base.html' %}
+{% load static %}
+{% load event_extras %}
+
+{% block head_block%}
+	<title>Event Details</title>
+{% endblock %}
+
+{% block nav_block %}
+{% endblock %}
+
+{% block bg_block %}
+	class="bg-light"
+{% endblock %}
+
+{% block body_block %}
+
+	<div class="container pt-5 pb-3">
+		<h2 class="text-primary">{{ event.title }}</h2>
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-8 order-md-1">
+			<div class="container py-5">
+				
+				<p><strong>Description: </strong>{{ event.description }}</p>
+
+				<p><strong>Link to join: </strong>{{ event.join }}</p>
+			</div>
+		</div>
+
+		<div class="bg-light col-md-4 order-md-2 mb-4">
+			<div class="container py-5">
+
+				<div class="card box-shadow">
+					
+					<div class="card-header">
+    					Quick deets
+  					</div>
+
+					<div class="card-body">
+						<p>
+							<i class="fa fa-calendar pr-2"></i>
+							{{ event.start }}
+						</p>
+						<p>
+							<i class="fa fa-hourglass-start pr-2"></i>
+							{% delta event.start event.end %} long
+						</p>
+						<p>
+
+							<i class="fa fa-filter pr-2"></i> 
+							{{ event.category }}
+						</p>
+						<p>
+							<i class="fa fa-user pr-2"></i>
+							Added by {{ event.user }}
+						</p>
+					</div>
+
+					<div class="card-footer">
+						<div class="row">
+							<div class="col text-center text-info">
+								<a href=""><i class="fas fa-plus pr-2"></i>iCal</a>
+							</div>
+							<div class="col text-center text-info">
+								<a href=""><i class="fas fa-plus pr-2"></i>gCal</a>
+							</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

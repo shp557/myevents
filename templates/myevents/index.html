@@ -1,0 +1,77 @@
+{% extends 'myevents/base.html' %}
+{% load static %}
+{% load event_extras %}
+
+{% block head_block%}
+	<title>Events</title>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+{% endblock %}
+
+{% block nav_block %}
+{% endblock %}
+
+{% block body_block %}
+
+
+	<div class="py-5">
+		<h2 class="text-primary">Welcome</h2>
+		<p class="lead text-secondary">With your help, we've put together a list of public, online events, facilitated by Zoom, BlueJeans, and other platforms. Take a look below to see if something piques your interest, and thanks for stopping by.</p>
+	</div>
+
+	<div class="py-3">
+		<h5 class="text-primary">Upcoming events</h5>
+	</div>
+
+	<div class="custom-control custom-switch py-3">
+		<input type="checkbox" class="custom-control-input" id="customSwitches">
+		<label class="custom-control-label text-secondary" for="customSwitches">
+			Table view
+		</label>
+	</div>
+
+	<div>
+
+		<button type="submit" class="btn btn-outline-danger active cardViewButtons my-1" data-categoryid="all">All</button>
+
+		{% get_all_categories as result %}
+		{% for e in result %}
+			<button type="submit" class="btn btn-outline-danger cardViewButtons" data-categoryid="{{ e.0 }}">{{ e.1 }}</button>
+		{% endfor %}
+
+	</div>
+
+	<div class="row mt-4 pl-2 justify-content-left" id="cardView">
+	{% for i in events %}
+		<a href="/myevents/event/{{ i.id }}/" style="text-decoration: none;">
+			<div class="card box-shadow mx-2 mb-3 indexCard" style="width:12rem; height:15rem;">
+
+				<div class="card-body">
+					<h5 class="card-title text-danger">{{ i.title }}</h5>
+					<h6 class="card-subtitle mb-2 text-dark">{{ i.day}} @ {{i.time }}</h6>
+					<p class="card-text text-truncate text-muted">{{ i.description }}</p>
+				</div>
+			</div>
+		</a>
+			
+			<!--
+			<div class="card-footer bg-white">
+				<a href="/myevents/event/{{ i.id }}/" class="card-link text-muted">
+					<i class="icon-chevron-right pr-2"></i>
+					find out more
+				</a>
+			</div>
+			-->
+
+	{% endfor %}
+	</div>
+
+	<div id="emptyResult" class="text-secondary">
+	</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+	<script src="{% static "js/my.js" %}" crossorigin="anonymous"></script>
+
+{% endblock %}

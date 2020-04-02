@@ -1,0 +1,72 @@
+{% extends 'myevents/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head_block%}
+	<title>Add an event</title>
+	<link rel="stylesheet" href="{% static 'my.css' %}">
+{% endblock %}
+
+{% block nav_block %}
+{% endblock %}
+
+{% block body_block %}
+
+	<div class="col-md-6 offset-md-3">
+		<div class="py-5 text-center">
+	    	<h2 class="text-primary">Add an event</h2>
+	    	<p class="lead text-secondary">Please add an event below. No worries if you don't know the specific link at the moment, and thanks for contributing.</p>
+  		</div>
+
+		{% if form.errors %}
+			{% for field in form %}
+				{% for error in field.errors %}
+					<div class="alert alert-primary">
+						<strong>{{ error|escape }}</strong>
+					</div>
+				{% endfor %}
+			{% endfor %}
+			{% for error in form.non_field_errors %}
+				<div class="alert alert-primary">
+					<strong>{{ error|escape }}</strong>
+				</div>
+			{% endfor %}
+		{% endif %}
+
+  		<div class="text-secondary">
+			<form id="event_form" method="post" action="{% url 'myevents:add_event' %}">
+
+				{% csrf_token %}
+
+				{{ form.title|as_crispy_field }}
+
+				<div class="form-row">
+					<div class="col-md-6">
+						{{ form.start|as_crispy_field }}
+					</div>
+
+					<div class="col-md-6">
+						{{ form.end|as_crispy_field }}
+					</div>
+				</div>
+
+				{{ form.join|as_crispy_field }}
+				{{ form.category|as_crispy_field }}
+				{{ form.description|as_crispy_field }}
+
+				{{ form.tags|as_crispy_field }}
+
+				<!--<hr class="mb-4">-->
+
+				<button type="submit" class="btn btn-danger btn-block">Add event</button>
+			</form>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+	<script src="{% static "js/my.js" %}" crossorigin="anonymous"></script>
+
+{% endblock %}

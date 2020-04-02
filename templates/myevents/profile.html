@@ -1,0 +1,74 @@
+{% extends 'myevents/base.html' %}
+{% load static %}
+{% load event_extras %}
+
+{% block head_block%}
+	<title>My events</title>
+	<link rel="stylesheet" href="{% static 'my.css' %}">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/fontawesome.min.js" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/regular.min.js" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/solid.min.js" rel="stylesheet">
+{% endblock %}
+
+{% block nav_block %}
+{% endblock %}
+
+{% block bg_block %}
+	class="bg-light"
+{% endblock %}
+
+{% block body_block %}
+
+	<div class="container pt-5 pb-3">
+		<h2 class="text-primary">{{ user.username }}'s events</h2>
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-8 order-md-1">
+			<div class="container py-3">
+				{% for i in events %}
+
+					<div class="card box-shadow mb-3" style="width:100%; height:13rem;">
+
+						<div class="card-body">
+							<h5 class="card-title text-danger">{{ i.title }}</h5>
+							<p class="card-subtitle mb-2 text-dark"><strong>Start: </strong>{{ i.start}}</h6>
+							<p class="card-subtitle mb-2 text-dark"><strong>End: </strong>{{ i.end}}</h6>		
+							<p class="card-text text-truncate text-muted">{{ i.description }}</p>
+						</div>
+
+						<div class="card-footer bg-white">
+							<div class="row">
+								<div class="col text-center">
+									<a href="/myevents/event/{{ i.id }}/" class="card-link text-muted"><i class="fa fa-chevron-right pr-2"></i>Event page
+									</a>
+								</div>
+								<div class="col text-center">
+									<a href="/myevents/event/{{ i.id }}/edit" class="card-link text-muted"><i class="fas fa-edit pr-2"></i>Edit
+									</a>
+								</div>
+								<div class="col text-center">
+									<a href="{% url 'myevents:delete' i.id %}" class="card-link text-muted confirm-delete"><i class="fas fa-trash pr-2"></i>Delete
+									</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				{% endfor %}
+
+			</div>
+		</div>
+
+		
+	</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+	<script src="{% static "js/my.js" %}" crossorigin="anonymous"></script>
+
+{% endblock %}

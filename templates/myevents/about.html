@@ -1,0 +1,23 @@
+{% extends 'myevents/base.html' %}
+{% load static %}
+
+{% block head_block%}
+	<title>About</title>
+	<link rel="stylesheet" href="{% static 'my.css' %}">
+{% endblock %}
+
+{% block nav_block %}
+{% endblock %}
+
+{% block body_block %}
+
+	<div class="py-5">
+		<h2 class="text-primary">What we're about</h2>
+		<p class="lead text-secondary">During this period of social distancing and isolation, it's hard to remain engaged with our communities. This is just one small tool that can help us feel and stay connected. And we're always eager for feedback!</p>
+	</div>
+
+	<div class="alert alert-primary" role="alert">
+		<strong>Public Service Announcement</strong>
+		<p>This is where the alert about zoombombing and internet trolls will go, unfortunately..</p>
+	</div>
+{% endblock %}
