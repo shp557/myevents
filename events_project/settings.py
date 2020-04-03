@@ -147,7 +147,7 @@ REGISTATION_AUTO_LOGIN = True #auto-login
 #stuff for crispy_forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-SITE_ID = 1
+SITE_ID = 2 #changed to zevents
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = os.environ.get('MAILGUN_SMTP_SERVER', '')

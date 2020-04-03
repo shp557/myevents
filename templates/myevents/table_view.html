@@ -34,11 +34,11 @@
 
 	<div>
 
-		<button type="submit" class="btn btn-outline-success active tableViewButtons my-1" data-categoryid="all">All</button>
+		<button type="submit" class="btn btn-outline-success active tableViewButtons mb-1" data-categoryid="all">All</button>
 
 		{% get_all_categories as result %}
 		{% for e in result %}
-			<button type="submit" class="btn btn-outline-success tableViewButtons" data-categoryid="{{ e.0 }}">{{ e.1 }}</button>
+			<button type="submit" class="btn btn-outline-success tableViewButtons mb-1" data-categoryid="{{ e.0 }}">{{ e.1 }}</button>
 		{% endfor %}
 
 	</div>
