@@ -73,5 +73,4 @@ def extract_time(datetime_var):
 	return datetime_var.strftime("%I:%M %p")
 
 def utc_to_local(utc_dt):
-    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=timezone.get_current_timezone())
-    
+    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=timezone.get_current_timezone)
