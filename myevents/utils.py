@@ -1,5 +1,6 @@
 from myevents.models import Event
 from datetime import datetime, timedelta, timezone
+import pytz
 from myevents.choices import *
 
 def querySetter(querySet):
@@ -73,4 +74,4 @@ def extract_time(datetime_var):
 	return datetime_var.strftime("%I:%M %p")
 
 def utc_to_local(utc_dt):
-    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=timezone.get_current_timezone)
+    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=datetime.now().astimezone().tzinfo)
