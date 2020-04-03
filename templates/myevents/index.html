@@ -66,6 +66,9 @@
 	</div>
 
 	<div id="emptyResult" class="text-secondary">
+		{% if not events %}
+			Sorry, there don't seem to be any events right now :/
+		{% endif %}
 	</div>
 
 {% endblock %}

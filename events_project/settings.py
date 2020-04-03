@@ -27,7 +27,7 @@ SECRET_KEY = 'pa^f(3k0p2%8@!r3@kqi^k_hp6_pd9*h7k6vfh#&m@y8a6zq7d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['zevents.herokuapp.com']
+ALLOWED_HOSTS = ['zevents.herokuapp.com', '127.0.0.1']
 
 
 # Application definition

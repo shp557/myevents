@@ -6,5 +6,6 @@ CAT_CHOICES = (
 	("chillin", "Chillin"),
 	("music", "Music"),
 	("education", "Education"), 
+	("religion", "Religion"),
 	("other", "Other"), 
 ) 

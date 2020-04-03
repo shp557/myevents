@@ -128,5 +128,6 @@ def profile(request):
 @login_required
 def delete(request, event_id):
 	event = Event.objects.get(id=event_id)
+	event.delete()
 	return redirect(reverse('profile'))
 

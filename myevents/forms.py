@@ -15,7 +15,7 @@ class EventForm(forms.ModelForm):
 
 	#basics
     title = forms.CharField(max_length=128, label="Event title")
-    description = forms.CharField(widget=forms.Textarea(), required=False)
+    description = forms.CharField(widget=forms.Textarea())
     join = forms.URLField(max_length=200, required=False, label="Link to join event", initial="http://")
     category = forms.ChoiceField(choices=CAT_CHOICES)
 
@@ -66,6 +66,7 @@ class EventForm(forms.ModelForm):
             },
         ),
         label="Keywords",
+        required=False,
     )
 
     class Meta:
