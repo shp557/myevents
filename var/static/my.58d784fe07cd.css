@@ -1,0 +1,67 @@
+.asteriskField {
+    display: none;
+}
+
+.bootstrap-tagsinput .badge {
+  margin: 2px 3px;
+  padding:5px 8px;
+  color: black; /* styling the text */
+  background-color: #caebf2; /* styling the background */
+  font-size: 14px;
+  font-family: "Helvetica Neue";
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+.bootstrap-tagsinput .badge [data-role="remove"]:after {
+  content: "×";
+  color: #7d8d91;
+  padding: 0px 4px;
+  background-color:rgba(0, 0, 0, 0);
+  border-radius:0%;
+  font-size:14px;
+}
+
+.bootstrap-tagsinput .badge [data-role="remove"]:hover:after {
+  background-color:transparent;
+  color: black;
+  font-size: 14px;
+  font-family: "Helvetica Neue";
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+.bootstrap-tagsinput .badge [data-role="remove"]:hover:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  color: #fff;
+}
+
+.bootstrap-tagsinput {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 4px;
+  width: 100%;
+  line-height: 22px;
+  cursor: text;
+}
+.bootstrap-tagsinput input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0px 6px;
+  margin: 0;
+  width: auto;
+  max-width: inherit;
+}
+
+.hiddenRow {
+    padding: 0 !important;
+}
+
+.indexCard:hover {
+  background: #ececec;
+}

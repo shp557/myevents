@@ -71,8 +71,7 @@ def extract_date(datetime_var):
 
 def extract_time(datetime_var):
 	datetime_var = utc_to_local(datetime_var)
-	return datetime_var.strftime("%I:%M %p")
+	return datetime_var.strftime("%-I:%M %p")
 
 def utc_to_local(utc_dt):
-    #return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=None)
-    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=tz.gettz())
+    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=None)

@@ -37,7 +37,7 @@ class EventForm(forms.ModelForm):
         		'icon_toggle': True,
         	}
         ),
-        label="Local start time",
+        label="Start time (in EST)",
     )
     end = forms.DateTimeField(
     	input_formats=['%m/%d/%Y %I:%M %p'],
@@ -56,7 +56,7 @@ class EventForm(forms.ModelForm):
         		'icon_toggle': True,
         	}
         ),
-        label="Local end time",
+        label="End time (in EST)",
     )
 
     tags = TagField(
