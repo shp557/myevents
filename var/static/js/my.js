@@ -13,7 +13,7 @@ $(document).ready(function() {
 				myTable = '<tbody id="indexTable">';
 				$.each(data, function(key,value) {
 					tableRow = '<tr data-toggle="collapse" data-target="#id' + value.id + '\" ' + 'class="colorChange">';
-					tableRow += '<td>' + value.title + '</td>';
+					tableRow += '<td>' + '<a href="/myevents/event/' + value.id + '/\"' + 'class="text-success">' + value.title + '</a></td>';
 					tableRow += '<td>' + value.day + '</td>';
 					tableRow += '<td>' + value.time + ' EST' + '</td>';
 					tableRow += '<td>' + value.duration + '</td>';
@@ -23,7 +23,8 @@ $(document).ready(function() {
 					tableRow2 += '<td colspan="6">';
 					tableRow2 += '<div class="card-body">';
 					tableRow2 += '<strong>Description: </strong>' + value.description + '<br>';
-					tableRow2 += '<strong>Link to join meeting: </strong>' + value.join;
+					tableRow2 += '<strong>Link to join meeting: </strong>';
+					tableRow2 += '<a href="' + value.join + '\">' + value.join + '</a>';
 					tableRow2 += '</div>' + '</td>' + '</tr>';
 							
 					myTable += tableRow;
@@ -70,8 +71,10 @@ $(document).ready(function() {
 					card = '<a href="/myevents/event/' + value.id + '/\"' + " " + 'style="text-decoration: none;">';
 					card += '<div class="card box-shadow mx-2 mb-3 indexCard" style="width:12rem; height:15rem;">';
 					card += '<div class="card-body">';
+					card += '<div style="height: 6rem; overflow: scroll; white-space: wrap;">'
 					card += '<h5 class="card-title text-danger">' + value.title + '</h5>';
-					card += '<h6 class="card-subtitle mb-2 text-dark">' + value.day + ' @ ' + value.time + ' EST' + '</h6>';
+					card += '</div>';
+					card += '<h6 class="card-subtitle mt-2 mb-2 text-dark">' + value.day + ' @ ' + value.time + ' EST' + '</h6>';
 					card += '<p class="card-text text-truncate text-muted">' + value.description + '</p>';
 					card += '</div>';
 					card += '</div>';
