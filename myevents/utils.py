@@ -8,7 +8,10 @@ def querySetter(querySet):
 	myEvents = []
 	for event in querySet:
 
-		if (datetime.today().date() <= event.start.date()) or (datetime.today().date() <= event.end.date()):
+		dt = datetime.utcnow()
+		dt_aware = dt.replace(tzinfo=timezone.utc)
+
+		if (dt_aware <= event.end):
 
 			#stylize
 			day = extract_date(event.start)
